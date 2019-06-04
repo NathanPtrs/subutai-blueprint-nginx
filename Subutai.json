@@ -3,7 +3,6 @@
     "description": "Web server nginx",
     "version": "0.0.1",
     "author": "https://github.com/lbthomsen",
-    "ssh-key": "lth", 
     "containers": [
         {
             "hostname": "${webContainerName}",
@@ -12,22 +11,21 @@
             "size": "${containerSize}",
             "port-mapping": [
                 {
-                    "protocol": "http",
+                    "protocol": "https",
                     "domain": "${domainName}",
                     "internal-port": "80",
-                    "external-port": "80"
+                    "external-port": "443"
                 }
             ]
         }
     ],
     "peer-criteria": [
         {
-            "name": "HTTP-GROUP",
-            "max-price": "25"
+            "name": "HTTP-GROUP"
         }
     ],
     "ansible-configuration": {
-        "source-url": "https://github.com/lbthomsen/subutai-blueprint-nginx/archive/master.zip",
+        "source-url": "https://github.com/NathanPtrs/subutai-blueprint-nginx/archive/master.zip",
         "ansible-playbook": "site.yml",
         "extra-vars": [
             {
